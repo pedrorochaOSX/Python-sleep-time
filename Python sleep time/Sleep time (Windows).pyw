@@ -56,8 +56,6 @@ def Confirm():
 
     os.system('shutdown /s /f /t %d' %(fullTime))
 
-    fullTime += 1
-
     Countdown()
 
   else:
