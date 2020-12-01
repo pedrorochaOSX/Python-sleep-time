@@ -49,13 +49,14 @@ def Confirm():
     timeSec = 0
 
     status = ('%.2d:%.2d:%.2d' %(timeHour, timeMin, timeSec))
+
     statusMessage.destroy()
     statusMessage = Label(window, text=('%s'%(status)), background='#010041', font='arial 16',fg='light green')
     statusMessage.pack()
 
-    os.system('shutdown /s /f /t %d' %(fullTime))
-
     fullTime *= 60
+
+    os.system('shutdown /s /f /t %d' %(fullTime))
 
     Countdown()
 
@@ -106,6 +107,7 @@ def Cancel():
   fullTime = 0
 
   status = 'No Sleep time'
+  
   statusMessage.destroy()
   statusMessage = Label(window, text=('%s'%(status)), background='#010041', font='arial 16',fg='light green')
   statusMessage.pack()
