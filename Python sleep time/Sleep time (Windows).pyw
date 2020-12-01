@@ -54,7 +54,9 @@ def Confirm():
     statusMessage = Label(window, text=('%s'%(status)), background='#3b5998', font='arial 16',fg='light green')
     statusMessage.pack()
 
-    #os.system('shutdown /s /f /t %d' %(fullTime))
+    os.system('shutdown /s /f /t %d' %(fullTime))
+
+    fullTime += 1
 
     Countdown()
 
@@ -64,7 +66,6 @@ def Confirm():
     statusMessage = Label(window, text=('%s'%(status)), background='#3b5998', font='arial 16',fg='red')
     statusMessage.pack()
 
-
 def Countdown():
   global statusMessage
   global fullTime
@@ -72,8 +73,6 @@ def Countdown():
   global timeMin
   global timeHour
   global status
-
-  fullTime += 1
 
   while(fullTime > 0):
     status = ('%.2d:%.2d:%.2d' %(timeHour, timeMin, timeSec)) 

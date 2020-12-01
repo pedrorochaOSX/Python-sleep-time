@@ -19,7 +19,7 @@ def Main():
 
   status = 'No Sleep Time'
 
-  message = Label(window, text=('''SET THE TIME (SECONDS) 
+  message = Label(window, text=('''SET THE TIME (MINUTES) 
   TO SHUTDOWN'''), background='#3b5998', font='arial 20',fg='white')
   message.pack()
 
@@ -54,7 +54,9 @@ def Confirm():
     statusMessage = Label(window, text=('%s'%(status)), background='#3b5998', font='arial 16',fg='light green')
     statusMessage.pack()
 
-    os.system('shutdown -h %d' %(fullTime))
+    os.system('shutdown -h ',fullTime)
+    
+    fullTime += 1
 
     Countdown()
 
@@ -64,7 +66,6 @@ def Confirm():
     statusMessage = Label(window, text=('%s'%(status)), background='#3b5998', font='arial 16',fg='red')
     statusMessage.pack()
 
-
 def Countdown():
   global statusMessage
   global fullTime
@@ -72,8 +73,6 @@ def Countdown():
   global timeMin
   global timeHour
   global status
-
-  fullTime += 1
 
   while(fullTime > 0):
     status = ('%.2d:%.2d:%.2d' %(timeHour, timeMin, timeSec)) 
