@@ -14,19 +14,19 @@ def Main():
   global timeMin
   global timeHour
 
-  timeEntry = Entry(window, font='arial 14')
+  timeEntry = Entry(window, font='arial 14',fg='white',bg='#202021')
   timeEntry.place(height=30,width=150,x=125,y=130)
 
-  status = 'No Sleep Time'
+  status = 'No Sleep time'
 
-  message = Label(window, text=('''SET THE TIME (SECONDS) 
-  TO SHUTDOWN'''), background='#3b5998', font='arial 20',fg='white')
+  message = Label(window, text=('''SET THE TIME (MINUTES) 
+  TO SHUTDOWN'''), background='#010041', font='arial 20',fg='white')
   message.pack()
 
-  statusMessage = Label(window, text=('%s'%(status)), background='#3b5998', font='arial 16',fg='light green')
+  statusMessage = Label(window, text=('%s'%(status)), background='#010041', font='arial 16',fg='light green')
   statusMessage.pack()
 
-  botao1 = Button(window, text="CONFIRM", background='light green',font='arial 11 bold', command= Confirm)
+  botao1 = Button(window, text="CONFIRM", background='green',font='arial 11 bold', command= Confirm)
   botao1.place(height=50,width=100,x=75,y=175)
   
   botao2 = Button(window, text="CANCEL",background='red',font='arial 11 bold', command= Cancel)
@@ -44,24 +44,25 @@ def Confirm():
   fullTime = int(timeEntry.get())
 
   if(fullTime > 0):
-    timeMin = fullTime // 60
-    timeSec = fullTime % 60
-    timeHour = timeMin // 60
-    timeMin = timeMin % 60
+    timeHour = fullTime // 60
+    timeMin = fullTime % 60
+    timeSec = 0
 
     status = ('%.2d:%.2d:%.2d' %(timeHour, timeMin, timeSec))
     statusMessage.destroy()
-    statusMessage = Label(window, text=('%s'%(status)), background='#3b5998', font='arial 16',fg='light green')
+    statusMessage = Label(window, text=('%s'%(status)), background='#010041', font='arial 16',fg='light green')
     statusMessage.pack()
 
     os.system('shutdown /s /f /t %d' %(fullTime))
+
+    fullTime *= 60
 
     Countdown()
 
   else:
     status = ('Set a valid number')
     statusMessage.destroy()
-    statusMessage = Label(window, text=('%s'%(status)), background='#3b5998', font='arial 16',fg='red')
+    statusMessage = Label(window, text=('%s'%(status)), background='#010041', font='arial 16',fg='red')
     statusMessage.pack()
 
 def Countdown():
@@ -76,7 +77,7 @@ def Countdown():
     status = ('%.2d:%.2d:%.2d' %(timeHour, timeMin, timeSec)) 
 
     statusMessage.destroy()
-    statusMessage = Label(window, text=('%s'%(status)), background='#3b5998', font='arial 16',fg='light green')
+    statusMessage = Label(window, text=('%s'%(status)), background='#010041', font='arial 16',fg='light green')
     statusMessage.pack()
 
     window.update()
@@ -98,27 +99,22 @@ def Countdown():
     fullTime -= 1
 
 def Cancel():
-  global message
   global statusMessage
-  global timeEntry
   global fullTime
-  global timeSec
-  global timeMin
-  global timeHour
   global status
 
   fullTime = 0
 
   status = 'No Sleep time'
   statusMessage.destroy()
-  statusMessage = Label(window, text=('%s'%(status)), background='#3b5998', font='arial 16',fg='light green')
+  statusMessage = Label(window, text=('%s'%(status)), background='#010041', font='arial 16',fg='light green')
   statusMessage.pack()
 
   os.system('shutdown /a')
 
 window = Tk()
 window.title('Sleep time')
-window.configure(background='#3b5998')
+window.configure(background='#010041')
 window.resizable(width = False, height = False)
 window.minsize(width = 400, height = 250) 
 
