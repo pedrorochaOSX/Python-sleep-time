@@ -44,10 +44,9 @@ def Confirm():
   fullTime = int(timeEntry.get())
 
   if(fullTime > 0):
-    timeMin = fullTime // 60
-    timeSec = fullTime % 60
-    timeHour = timeMin // 60
-    timeMin = timeMin % 60
+    timeHour = fullTime // 60
+    timeMin = fullTime % 60
+    timeSec = 0
 
     status = ('%.2d:%.2d:%.2d' %(timeHour, timeMin, timeSec))
     statusMessage.destroy()
