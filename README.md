@@ -1,2 +1,2 @@
 # Python-sleep-time
-Python "Sleep time" Desktop App for Ubuntu and Windows
+This Desktop App made using the Tkinter Python library runs like a "Sleep time menu" for Ubuntu or Windows.
