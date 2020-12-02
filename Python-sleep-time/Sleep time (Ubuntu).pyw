@@ -27,10 +27,10 @@ def Main():
 %s'''%(status)), background='#121212', font='arial 16',fg='light green')
   statusMessage.pack()
 
-  botao1 = Button(window, text="START", background='green',font='arial 11 bold', command= Confirm)
+  botao1 = Button(window, text="START", background='green',font='arial 11 bold', command= Start)
   botao1.place(height=40,width=125,x=0,y=210)
   
-  botao2 = Button(window, text="CANCEL",background='red',font='arial 11 bold', command= Start)
+  botao2 = Button(window, text="CANCEL",background='red',font='arial 11 bold', command= Cancel)
   botao2.place(height=40,width=125,x=125,y=210)
 
 def Start():
