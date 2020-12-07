@@ -2,225 +2,167 @@ import os
 import time
 from tkinter import *
 
-def Main():
-  global message
-  global statusMessage
-  global status
-  global timeEntry
-  global fullTime
-  global botaoStart
-  global botaoCancel
-  global timeSec
-  global timeMin
-  global timeHour
-  global botao1
-  global botao2
-  global botao3
-  global botao4
-  global botao5
-  global botao6
-  global botao7
-  global botao8
-  global botao9
-  global botao0
-  global botaoBack
+class SleepTime:
+  def __init__ (self):
 
+    self.timeEntry = Entry(window, font='arial 14',fg='white',bg='#202021')
+    self.timeEntry.place(height=30,width=225,x=37.5,y=145)
 
-  timeEntry = Entry(window, font='arial 14',fg='white',bg='#202021')
-  timeEntry.place(height=30,width=225,x=37.5,y=145)
+    self.status = 'No Sleep time'
 
-  status = 'No Sleep time'
+    self.message = Label(window, text=('''SET THE TIME
+  (MINUTES)'''), background='#121212', font='arial 20',fg='white')
+    self.message.pack()
 
-  message = Label(window, text=('''SET THE TIME
-(MINUTES)'''), background='#121212', font='arial 20',fg='white')
-  message.pack()
+    self.statusMessage = Label(window, text=('''
+  %s'''%(self.status)), background='#121212', font='arial 16',fg='#c72344')
+    self.statusMessage.pack()
 
-  statusMessage = Label(window, text=('''
-%s'''%(status)), background='#121212', font='arial 16',fg='#c72344')
-  statusMessage.pack()
+    self.botao1 = Button(window, text="1", background='#1a1a1a',font='arial 14',fg='#ffffff',command=self.key1)
+    self.botao1.place(height=40,width=100,x=0,y=210)
 
-  botao1 = Button(window, text="1", background='#1a1a1a',font='arial 14',fg='#ffffff',command=key1)
-  botao1.place(height=40,width=100,x=0,y=210)
+    self.botao2 = Button(window, text="2", background='#1a1a1a',font='arial 14',fg='#ffffff',command=self.key2)
+    self.botao2.place(height=40,width=100,x=100,y=210)
 
-  botao2 = Button(window, text="2", background='#1a1a1a',font='arial 14',fg='#ffffff',command=key2)
-  botao2.place(height=40,width=100,x=100,y=210)
+    self.botao3 = Button(window, text="3", background='#1a1a1a',font='arial 14',fg='#ffffff',command=self.key3)
+    self.botao3.place(height=40,width=100,x=200,y=210)
 
-  botao3 = Button(window, text="3", background='#1a1a1a',font='arial 14',fg='#ffffff',command=key3)
-  botao3.place(height=40,width=100,x=200,y=210)
+    self.botao4 = Button(window, text="4", background='#1a1a1a',font='arial 14',fg='#ffffff',command=self.key4)
+    self.botao4.place(height=40,width=100,x=0,y=250)
 
-  botao4 = Button(window, text="4", background='#1a1a1a',font='arial 14',fg='#ffffff',command=key4)
-  botao4.place(height=40,width=100,x=0,y=250)
+    self.botao5 = Button(window, text="5", background='#1a1a1a',font='arial 14',fg='#ffffff',command=self.key5)
+    self.botao5.place(height=40,width=100,x=100,y=250)
 
-  botao5 = Button(window, text="5", background='#1a1a1a',font='arial 14',fg='#ffffff',command=key5)
-  botao5.place(height=40,width=100,x=100,y=250)
+    self.botao6 = Button(window, text="6", background='#1a1a1a',font='arial 14',fg='#ffffff',command=self.key6)
+    self.botao6.place(height=40,width=100,x=200,y=250)
 
-  botao6 = Button(window, text="6", background='#1a1a1a',font='arial 14',fg='#ffffff',command=key6)
-  botao6.place(height=40,width=100,x=200,y=250)
+    self.botao7 = Button(window, text="7", background='#1a1a1a',font='arial 14',fg='#ffffff',command=self.key7)
+    self.botao7.place(height=40,width=100,x=0,y=290)
 
-  botao7 = Button(window, text="7", background='#1a1a1a',font='arial 14',fg='#ffffff',command=key7)
-  botao7.place(height=40,width=100,x=0,y=290)
+    self.botao8 = Button(window, text="8", background='#1a1a1a',font='arial 14',fg='#ffffff',command=self.key8)
+    self.botao8.place(height=40,width=100,x=100,y=290)
 
-  botao8 = Button(window, text="8", background='#1a1a1a',font='arial 14',fg='#ffffff',command=key8)
-  botao8.place(height=40,width=100,x=100,y=290)
+    self.botao9 = Button(window, text="9", background='#1a1a1a',font='arial 14',fg='#ffffff',command=self.key9)
+    self.botao9.place(height=40,width=100,x=200,y=290)
 
-  botao9 = Button(window, text="9", background='#1a1a1a',font='arial 14',fg='#ffffff',command=key9)
-  botao9.place(height=40,width=100,x=200,y=290)
+    self.botao0 = Button(window, text="0", background='#1a1a1a',font='arial 14',fg='#ffffff',command=self.key0)
+    self.botao0.place(height=40,width=100,x=100,y=330)
 
-  botao0 = Button(window, text="0", background='#1a1a1a',font='arial 14',fg='#ffffff',command=key0)
-  botao0.place(height=40,width=100,x=100,y=330)
+    self.botaoBack = Button(window, text="BACKSPACE", background='#1a1a1a',font='arial 10 bold',fg='#ffffff',command=self.backspace)
+    self.botaoBack.place(height=40,width=100,x=200,y=330)                  
 
-  botaoBack = Button(window, text="BACKSPACE", background='#1a1a1a',font='arial 10 bold',fg='#ffffff',command=backspace)
-  botaoBack.place(height=40,width=100,x=200,y=330)                  
-
-  botaoStart = Button(window, text="START", background='green',font='arial 11 bold', fg='#ffffff',command= Start)
-  botaoStart.place(height=40,width=150,x=0,y=370)
-  
-  botaoCancel = Button(window, text="CANCEL",background='red',font='arial 11 bold', fg='#ffffff',command= Cancel)
-  botaoCancel.place(height=40,width=150,x=150,y=370)
-
-def key1():
-  global timeEntry
-
-  timeEntry.insert(END, '1')
-  print('1')
-
-def key2():
-  global timeEntry
-
-  timeEntry.insert(END, '2')
-
-def key3():
-  global timeEntry
-
-  timeEntry.insert(END, '3')
-
-def key4():
-  global timeEntry
-
-  timeEntry.insert(END, '4')
-
-def key5():
-  global timeEntry
-
-  timeEntry.insert(END, '5')
-
-def key6():
-  global timeEntry
-
-  timeEntry.insert(END, '6')
-
-def key7():
-  global timeEntry
-
-  timeEntry.insert(END, '7')
-
-def key8():
-  global timeEntry
-
-  timeEntry.insert(END, '8')
-
-def key9():
-  global timeEntry
-  
-  timeEntry.insert(END, '9')
-
-def key0():
-  global timeEntry
-
-  timeEntry.insert(END, '0')    
-
-def backspace():
-  global timeEntry
-
-  finalNum = len(timeEntry.get()) -1  
-  timeEntry.delete(int(finalNum))
-
-
-def Start():
-  global statusMessage
-  global timeEntry
-  global fullTime
-  global timeSec
-  global timeMin
-  global timeHour
-  global status
-
-  fullTime = int(timeEntry.get())
-
-  if(fullTime > 0):
-    timeHour = fullTime // 60
-    timeMin = fullTime % 60
-    timeSec = 0
-
-    status = ('%.2d:%.2d:%.2d' %(timeHour, timeMin, timeSec))
-
-    statusMessage.destroy()
-    statusMessage = Label(window, text=('''
-%s'''%(status)), background='#121212', font='arial 16',fg='#c72344')
-    statusMessage.pack()
-
-    fullTime *= 60
-
-    os.system('shutdown /s /f /t %d' %(fullTime))
-
-    Countdown()
-
-  else:
-    status = ('Set a valid number')
-    statusMessage.destroy()
-    statusMessage = Label(window, text=('''
-%s'''%(status)), background='#121212', font='arial 16',fg='red')
-    statusMessage.pack()
-
-def Countdown():
-  global statusMessage
-  global fullTime
-  global timeSec
-  global timeMin
-  global timeHour
-  global status
-
-  while(fullTime > 0):
-    status = ('%.2d:%.2d:%.2d' %(timeHour, timeMin, timeSec)) 
-
-    statusMessage.destroy()
-    statusMessage = Label(window, text=('''
-%s'''%(status)), background='#121212', font='arial 16',fg='#c72344')
-    statusMessage.pack()
-
-    window.update()
+    self.botaoStart = Button(window, text="START", background='green',font='arial 11 bold', fg='#ffffff',command= self.Start)
+    self.botaoStart.place(height=40,width=150,x=0,y=370)
     
-    time.sleep(1)
+    self.botaoCancel = Button(window, text="CANCEL",background='red',font='arial 11 bold', fg='#ffffff',command= self.Cancel)
+    self.botaoCancel.place(height=40,width=150,x=150,y=370)
 
-    if(timeSec >= 0):
-      timeSec -= 1
+  def key1(self):
+    self.timeEntry.insert(END, '1')
 
-    if(timeSec < 0 and timeMin > 0):
-      timeMin -= 1
-      timeSec = 59
+  def key2(self):
+    self.timeEntry.insert(END, '2')
 
-    if(timeSec < 0 and timeMin == 0 and timeHour > 0):
-      timeHour -= 1
-      timeSec = 59
-      timeMin = 59
+  def key3(self):
+    self.timeEntry.insert(END, '3')
 
-    fullTime -= 1
+  def key4(self):
+    self.timeEntry.insert(END, '4')
 
-def Cancel():
-  global statusMessage
-  global fullTime
-  global status
+  def key5(self):
+    self.timeEntry.insert(END, '5')
 
-  fullTime = 0
+  def key6(self):
+    self.timeEntry.insert(END, '6')
 
-  status = 'No Sleep time'
-  
-  statusMessage.destroy()
-  statusMessage = Label(window, text=('''
-%s'''%(status)), background='#121212', font='arial 16',fg='#c72344')
-  statusMessage.pack()
+  def key7(self):
+    self.timeEntry.insert(END, '7')
 
-  os.system('shutdown /a')
+  def key8(self):
+    self.timeEntry.insert(END, '8')
+
+  def key9(self):
+    self.timeEntry.insert(END, '9')
+
+  def key0(self):
+    self.timeEntry.insert(END, '0')    
+
+  def backspace(self):
+    finalNum = len(self.timeEntry.get()) -1  
+    self.timeEntry.delete(int(finalNum))
+
+
+  def Start(self):
+
+    self.fullTime = int(self.timeEntry.get())
+
+    if(self.fullTime > 0):
+      self.timeHour = self.fullTime // 60
+      self.timeMin = self.fullTime % 60
+      self.timeSec = 0
+
+      self.status = ('%.2d:%.2d:%.2d' %(self.timeHour, self.timeMin, self.timeSec))
+
+      self.statusMessage.destroy()
+      self.statusMessage = Label(window, text=('''
+  %s'''%(self.status)), background='#121212', font='arial 16',fg='#c72344')
+      self.statusMessage.pack()
+
+      self.fullTime *= 60
+
+      os.system('shutdown /s /f /t %d' %(self.fullTime))
+      print('Started Shutdown (%s)' %(self.status))
+      self.Countdown()
+
+    else:
+      self.status = ('Set a valid number')
+      self.statusMessage.destroy()
+      self.statusMessage = Label(window, text=('''
+  %s'''%(self.status)), background='#121212', font='arial 16',fg='red')
+      self.statusMessage.pack()
+
+  def Countdown(self):
+
+    while(self.fullTime > 0):
+      self.status = ('%.2d:%.2d:%.2d' %(self.timeHour, self.timeMin, self.timeSec)) 
+
+      self.statusMessage.destroy()
+      self.statusMessage = Label(window, text=('''
+  %s'''%(self.status)), background='#121212', font='arial 16',fg='#c72344')
+      self.statusMessage.pack()
+
+      window.update()
+      
+      time.sleep(1)
+
+      if(self.timeSec >= 0):
+        self.timeSec -= 1
+
+      if(self.timeSec < 0 and self.timeMin > 0):
+        self.timeMin -= 1
+        self.timeSec = 59
+
+      if(self.timeSec < 0 and self.timeMin == 0 and self.timeHour > 0):
+        self.timeHour -= 1
+        self.timeSec = 59
+        self.timeMin = 59
+
+      self.fullTime -= 1
+
+  def Cancel(self):
+
+    self.fullTime = 0
+
+    print('Canceled Shutdown (%s)' %(self.status))
+
+    self.status = 'No Sleep time'
+    
+    self.statusMessage.destroy()
+    self.statusMessage = Label(window, text=('''
+  %s'''%(self.status)), background='#121212', font='arial 16',fg='#c72344')
+    self.statusMessage.pack()
+
+    os.system('shutdown /a')
 
 window = Tk()
 window.title('Sleep time')
@@ -228,6 +170,6 @@ window.configure(background='#121212')
 window.resizable(width = False, height = False)
 window.minsize(width = 300, height = 410) 
 
-Main()
+SleepTime()
 
 window.mainloop()
