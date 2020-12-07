@@ -108,7 +108,7 @@ class SleepTime:
   %s'''%(self.status)), background='#121212', font='arial 16',fg='#c72344')
       self.statusMessage.pack()
 
-      os.system('shutdown /s /f /t %d' %(self.fullTime))
+      os.system('shutdown -h %d' %(self.fullTime))
 
       self.fullTime *= 60
 
@@ -163,7 +163,7 @@ class SleepTime:
   %s'''%(self.status)), background='#121212', font='arial 16',fg='#c72344')
     self.statusMessage.pack()
 
-    os.system('shutdown /a')
+    os.system('shutdown -c')
 
 window = Tk()
 window.title('Sleep time')
