@@ -5,7 +5,7 @@ from tkinter import *
 class SleepTime:
   def __init__ (self):
 
-    self.timeEntry = Entry(window, font='arial 14',fg='white',bg='#202021')
+    self.timeEntry = Entry(window, font='arial 14',fg='white',bg='black')
     self.timeEntry.place(height=30,width=225,x=37.5,y=145)
 
     self.status = 'No Sleep time'
@@ -18,43 +18,43 @@ class SleepTime:
   %s'''%(self.status)), background='#121212', font='arial 16',fg='#c72344')
     self.statusMessage.pack()
 
-    self.botao1 = Button(window, text="1", background='#1a1a1a',font='arial 14',fg='#ffffff',command=self.key1)
+    self.botao1 = Button(window, text="1", background='black',font='arial 14',fg='#ffffff',command=self.key1)
     self.botao1.place(height=40,width=100,x=0,y=210)
 
-    self.botao2 = Button(window, text="2", background='#1a1a1a',font='arial 14',fg='#ffffff',command=self.key2)
+    self.botao2 = Button(window, text="2", background='black',font='arial 14',fg='#ffffff',command=self.key2)
     self.botao2.place(height=40,width=100,x=100,y=210)
 
-    self.botao3 = Button(window, text="3", background='#1a1a1a',font='arial 14',fg='#ffffff',command=self.key3)
+    self.botao3 = Button(window, text="3", background='black',font='arial 14',fg='#ffffff',command=self.key3)
     self.botao3.place(height=40,width=100,x=200,y=210)
 
-    self.botao4 = Button(window, text="4", background='#1a1a1a',font='arial 14',fg='#ffffff',command=self.key4)
+    self.botao4 = Button(window, text="4", background='black',font='arial 14',fg='#ffffff',command=self.key4)
     self.botao4.place(height=40,width=100,x=0,y=250)
 
-    self.botao5 = Button(window, text="5", background='#1a1a1a',font='arial 14',fg='#ffffff',command=self.key5)
+    self.botao5 = Button(window, text="5", background='black',font='arial 14',fg='#ffffff',command=self.key5)
     self.botao5.place(height=40,width=100,x=100,y=250)
 
-    self.botao6 = Button(window, text="6", background='#1a1a1a',font='arial 14',fg='#ffffff',command=self.key6)
+    self.botao6 = Button(window, text="6", background='black',font='arial 14',fg='#ffffff',command=self.key6)
     self.botao6.place(height=40,width=100,x=200,y=250)
 
-    self.botao7 = Button(window, text="7", background='#1a1a1a',font='arial 14',fg='#ffffff',command=self.key7)
+    self.botao7 = Button(window, text="7", background='black',font='arial 14',fg='#ffffff',command=self.key7)
     self.botao7.place(height=40,width=100,x=0,y=290)
 
-    self.botao8 = Button(window, text="8", background='#1a1a1a',font='arial 14',fg='#ffffff',command=self.key8)
+    self.botao8 = Button(window, text="8", background='black',font='arial 14',fg='#ffffff',command=self.key8)
     self.botao8.place(height=40,width=100,x=100,y=290)
 
-    self.botao9 = Button(window, text="9", background='#1a1a1a',font='arial 14',fg='#ffffff',command=self.key9)
+    self.botao9 = Button(window, text="9", background='black',font='arial 14',fg='#ffffff',command=self.key9)
     self.botao9.place(height=40,width=100,x=200,y=290)
 
-    self.botao0 = Button(window, text="0", background='#1a1a1a',font='arial 14',fg='#ffffff',command=self.key0)
+    self.botao0 = Button(window, text="0", background='black',font='arial 14',fg='#ffffff',command=self.key0)
     self.botao0.place(height=40,width=100,x=100,y=330)
 
-    self.botaoBack = Button(window, text="BACKSPACE", background='#1a1a1a',font='arial 10 bold',fg='#ffffff',command=self.backspace)
+    self.botaoBack = Button(window, text="BACKSPACE", background='black',font='arial 10 bold',fg='#ffffff',command=self.backspace)
     self.botaoBack.place(height=40,width=100,x=200,y=330)                  
 
-    self.botaoStart = Button(window, text="START", background='green',font='arial 11 bold', fg='#ffffff',command= self.Start)
+    self.botaoStart = Button(window, text="START", background='#c72344',font='arial 11 bold', fg='#ffffff',command= self.Start)
     self.botaoStart.place(height=40,width=150,x=0,y=370)
     
-    self.botaoCancel = Button(window, text="CANCEL",background='red',font='arial 11 bold', fg='#ffffff',command= self.Cancel)
+    self.botaoCancel = Button(window, text="CANCEL",background='grey',font='arial 11 bold', fg='#ffffff',command= self.Cancel)
     self.botaoCancel.place(height=40,width=150,x=150,y=370)
 
   def key1(self):
